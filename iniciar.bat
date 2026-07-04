@@ -71,19 +71,17 @@ if not exist node_modules (
     call npm install
 )
 echo.
-echo Intentando abrir la pagina web en tu navegador de forma automatica...
-start "" "http://localhost:3000"
-echo.
-echo Ejecutando servidor web local en el puerto 3000...
+echo Ejecutando servidor web local...
+echo Vite abrira tu navegador de forma automatica en cuanto este listo.
 echo.
 echo ----------------------------------------------------------
-echo   NOTA: Si tu navegador no se abrio automaticamente,
-echo         ingresa de manera manual a: http://localhost:3000
+echo   NOTA: Si tu navegador no se abre automaticamente,
+echo         puedes entrar de forma manual en: http://localhost:3000
 echo ----------------------------------------------------------
 echo.
 echo Para apagar el servidor, presiona CTRL + C en esta ventana.
 echo.
-call npm run dev
+call npm run dev -- --open
 pause
 goto menu
 
@@ -112,11 +110,10 @@ echo.
 echo Compilando la aplicacion para optimizar peso y rendimiento...
 call npm run build
 echo.
-echo Intentando abrir la previsualizacion en tu navegador...
-start "" "http://localhost:4173"
-echo.
 echo Iniciando previsualizacion del sitio web optimizado...
-call npm run preview
+echo Vite abrira tu navegador de forma automatica en cuanto este listo.
+echo.
+call npm run preview -- --open
 pause
 goto menu
 
