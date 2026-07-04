@@ -17,6 +17,9 @@ if %errorlevel% neq 0 (
     echo   Para ejecutar esta aplicacion web localmente, necesitas
     echo   instalar Node.js en tu sistema obligatoriamente.
     echo.
+    echo   No puedes simplemente hacer doble clic en el archivo "index.html"
+    echo   porque los navegadores bloquean la carga de modulos React por seguridad.
+    echo.
     echo   Solucion rapida paso a paso:
     echo   1. Ingresa a la web oficial de Node.js: https://nodejs.org/
     echo   2. Descarga e instala la version recomendada (LTS).
@@ -37,7 +40,7 @@ echo ==========================================================
 echo.
 echo   Este panel automatiza la ejecucion local de tu calculadora.
 echo.
-echo   [1] Iniciar Servidor de Desarrollo (Recomendado)
+echo   [1] Iniciar Servidor de Desarrollo (Abre la web automaticamente)
 echo   [2] Instalar dependencias (Ejecutar la primera vez)
 echo   [3] Compilar aplicacion final (Para produccion)
 echo   [4] Salir
@@ -68,11 +71,14 @@ if not exist node_modules (
     call npm install
 )
 echo.
-echo Ejecutando servidor web local...
+echo Intentando abrir la pagina web en tu navegador de forma automatica...
+start "" "http://localhost:3000"
+echo.
+echo Ejecutando servidor web local en el puerto 3000...
 echo.
 echo ----------------------------------------------------------
-echo   NOTA: Abre la direccion URL que aparezca en pantalla,
-echo         usualmente http://localhost:3000 o http://localhost:5173
+echo   NOTA: Si tu navegador no se abrio automaticamente,
+echo         ingresa de manera manual a: http://localhost:3000
 echo ----------------------------------------------------------
 echo.
 echo Para apagar el servidor, presiona CTRL + C en esta ventana.
@@ -105,6 +111,9 @@ echo ==========================================================
 echo.
 echo Compilando la aplicacion para optimizar peso y rendimiento...
 call npm run build
+echo.
+echo Intentando abrir la previsualizacion en tu navegador...
+start "" "http://localhost:4173"
 echo.
 echo Iniciando previsualizacion del sitio web optimizado...
 call npm run preview
