@@ -1,0 +1,6 @@
+{
+  "name": "Calculadora con Temas",
+  "description": "Una calculadora interactiva y elegante que permite cambiar entre múltiples temas visuales y cuenta con historial de operaciones.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
